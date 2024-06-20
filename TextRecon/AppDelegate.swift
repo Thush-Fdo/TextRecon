@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TextRecon
 //
-//  Created by Shermin Fernando on 17/05/2024.
+//  Created by Thush-Fdo on 17/05/2024.
 //
 
 import UIKit

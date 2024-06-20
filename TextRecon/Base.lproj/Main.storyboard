@@ -1,24 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TextRecon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Sign" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNI-0D-NBY">
+                                <rect key="frame" x="15" y="79" width="363" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ax6-5e-dv1">
+                                <rect key="frame" x="15" y="457" width="363" height="270"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qSK-1b-CnS">
+                                <rect key="frame" x="15" y="742" width="363" height="56"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQW-dl-fpk">
+                                        <rect key="frame" x="0.0" y="0.0" width="111" height="56"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="camIcon" imagePadding="25"/>
+                                        <connections>
+                                            <action selector="CaptureImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I6X-Be-5Wc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVK-7i-gwF">
+                                        <rect key="frame" x="126" y="0.0" width="111" height="56"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="galleryIcon"/>
+                                        <connections>
+                                            <action selector="GalleryImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CQK-hA-tbz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWF-Qo-oyA">
+                                        <rect key="frame" x="252" y="0.0" width="111" height="56"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="sampleIcon"/>
+                                        <connections>
+                                            <action selector="SampleImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CMP-0M-IzG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="KDk-Zv-Yfo"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="xCM-3p-OqC">
+                                <rect key="frame" x="15" y="118" width="363" height="275"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="275" id="fEY-L5-a8s"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Processed Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nu-iR-IYC">
+                                <rect key="frame" x="15" y="418" width="363" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qSK-1b-CnS" secondAttribute="bottom" constant="20" id="2ul-y9-4RB"/>
+                            <constraint firstItem="qSK-1b-CnS" firstAttribute="top" secondItem="Ax6-5e-dv1" secondAttribute="bottom" constant="15" id="Ktj-87-EaW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xCM-3p-OqC" secondAttribute="trailing" constant="15" id="M0V-ol-PvJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zNI-0D-NBY" secondAttribute="trailing" constant="15" id="ZxR-Oz-2TV"/>
+                            <constraint firstItem="3Nu-iR-IYC" firstAttribute="top" secondItem="xCM-3p-OqC" secondAttribute="bottom" constant="25" id="agd-lf-xpj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Nu-iR-IYC" secondAttribute="trailing" constant="15" id="b9M-i2-0OD"/>
+                            <constraint firstItem="zNI-0D-NBY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="bf4-GV-oyh"/>
+                            <constraint firstItem="zNI-0D-NBY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="cTu-Ul-ehM"/>
+                            <constraint firstItem="Ax6-5e-dv1" firstAttribute="top" secondItem="3Nu-iR-IYC" secondAttribute="bottom" constant="15" id="g4z-78-sS3"/>
+                            <constraint firstItem="xCM-3p-OqC" firstAttribute="top" secondItem="zNI-0D-NBY" secondAttribute="bottom" constant="15" id="gf8-iL-tuG"/>
+                            <constraint firstItem="xCM-3p-OqC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="icf-vE-MEf"/>
+                            <constraint firstItem="3Nu-iR-IYC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="jWO-ld-Sei"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qSK-1b-CnS" secondAttribute="trailing" constant="15" id="oO2-Z9-95F"/>
+                            <constraint firstItem="Ax6-5e-dv1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="um6-fv-QSk"/>
+                            <constraint firstItem="qSK-1b-CnS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="yLV-ag-XhJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ax6-5e-dv1" secondAttribute="trailing" constant="15" id="z38-ot-Faz"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="xCM-3p-OqC" id="Mv5-nE-Ecr"/>
+                        <outlet property="textSample" destination="Ax6-5e-dv1" id="e4v-RT-ukq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-19.083969465648853" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PlaceholderImg" width="40" height="40"/>
+        <image name="camIcon" width="50" height="50"/>
+        <image name="galleryIcon" width="50" height="50"/>
+        <image name="sampleIcon" width="50" height="50"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

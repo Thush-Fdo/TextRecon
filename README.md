@@ -1,5 +1,5 @@
 # Intro
-This project can be used to convert text from captured images or images in your gallery. Sample images are provided. The accuracy ranges from 85% to 100% for text recognition. 
+This project can be used to convert text from captured images or images in the device gallery. Sample images are provided. The accuracy ranges from 85% to 100% for text recognition. 
 
 ## Getting Started
 To get a local copy up and running follow these simple steps.

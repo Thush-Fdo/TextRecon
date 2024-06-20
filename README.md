@@ -6,7 +6,7 @@ To get a local copy up and running follow these simple steps.
 1. Install Xcode 15.2 or higher
 
 2. Clone the repo
-`git clone https://github.com/your_username_/TextRecon.git`
+`git clone https://github.com/Thush-Fdo/TextRecon.git`
 
 
 #### Built With

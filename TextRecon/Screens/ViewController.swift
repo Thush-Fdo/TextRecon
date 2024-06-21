@@ -19,11 +19,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         textSample.text = "-No Text-"
+        createDismissKeyboardTapGesture()
         configureOptionSheet()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+    }
+    
+    func createDismissKeyboardTapGesture(){
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
     }
     
     @IBAction func CaptureImage(_ sender: Any) {
@@ -94,7 +100,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         do {
             try handler.perform([request])
         } catch  {
-            print(error)
+            presentGRAlertOnMainThread(title: "Error", message: error.localizedDescription, buttonTitle: "Ok")
         }
         
     }
@@ -117,7 +123,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.textSample.text = "Processing..."
             self.recognizetext(image: self.imageView.image)
         } else {
-            print("Image Not Found")
+            presentGRAlertOnMainThread(title: "Image Error", message: "Image not found", buttonTitle: "Ok")
         }
         
         picker.dismiss(animated: true)

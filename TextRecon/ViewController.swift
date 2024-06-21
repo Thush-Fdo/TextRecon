@@ -13,9 +13,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var textSample: UITextView!
     @IBOutlet weak var imageView: UIImageView!
     
+    var optionSheet = UIAlertController()
+    var optionList: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textSample.text = "-No Text-"
+        configureOptionSheet()
     }
     
     override func viewDidLayoutSubviews() {
@@ -32,44 +36,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func SampleImage(_ sender: Any) {
-        let optionSheet = UIAlertController(title: "Sample Images",
-                                            message: "Use below images to test the app",
-                                            preferredStyle: .alert)
-        
-        optionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {
-            (action) in
-            print("Cancel")
-            self.imageView.image = UIImage(named: "PlaceholderImg")
-            self.textSample.text = "-No Text-"
-        }))
-        
-        optionSheet.addAction(UIAlertAction(title: "Sample 01", style: .default, handler: { [weak self]
-            (action) in
-            
-            self?.imageView.image = UIImage(named: "sample1")
-            self?.textSample.text = "Processing..."
-            self?.recognizetext(image: self?.imageView.image)
-        }))
-        
-        optionSheet.addAction(UIAlertAction(title: "Sample 02", style: .default, handler: { [weak self]
-            (action) in
-            
-            self?.imageView.image = UIImage(named: "sample2")
-            self?.textSample.text = "Processing..."
-            self?.recognizetext(image: self?.imageView.image)
-        }))
-        
-        optionSheet.addAction(UIAlertAction(title: "Sample 03", style: .default, handler: { [weak self]
-            (action) in
-            
-            self?.imageView.image = UIImage(named: "sample3")
-            self?.textSample.text = "Processing..."
-            self?.recognizetext(image: self?.imageView.image)
-        }))
-        
         self.present(optionSheet, animated: true)
     }
     
+    func configureOptionSheet() {
+        optionSheet = UIAlertController(title: "Sample Images",
+                                        message: "Use below images to test the app",
+                                        preferredStyle: .alert)
+        optionList = ["Cancel", "sample1", "sample2", "sample3"]
+        
+        for option in optionList {
+            if option == "cancel" {
+                optionSheetAdd(title: option, image: option, action: .cancel)
+            } else {
+                optionSheetAdd(title: option, image: option, action: .default)
+            }
+        }
+    }
+    
+    func optionSheetAdd(title: String, image: String, action: UIAlertAction.Style) {
+        self.optionSheet.addAction(UIAlertAction(title: title, style: action, handler: { [weak self]
+            (action) in
+            
+            if title == "Cancel" {
+                self?.imageView.image = UIImage(named: "PlaceholderImg")
+                self?.textSample.text = "-No Text-"
+            } else  {
+                self?.imageView.image = UIImage(named: image)
+                self?.textSample.text = "Processing..."
+                self?.recognizetext(image: self?.imageView.image)
+            }
+        }))
+    }
     
     func recognizetext(image: UIImage?) {
         guard let cgImage = image?.cgImage else { return }
